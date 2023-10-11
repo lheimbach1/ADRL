@@ -26,6 +26,7 @@ ADRL
 ```
 ## Commands for Training and Testing on Local Computer
 ### Training
+In ```train.py``` the training parameters such as the entropy coefficent, epochs, learning rate, number of parallel environments, etc. can be adjusted in the argparse function.
 ```
 cd train/
 python3 train.py
@@ -42,8 +43,8 @@ python3 test.py
 env2lmod
 module load gcc/8.2.0 python/3.10.4 hdf5/1.10.1 eth_proxy
 ```
-### Training RL Model with 20 CPU's (running the simulations in parallel) and 1 GPU (training the policy network)
+### Training RL Model with N CPU's (running the simulations in parallel) and M GPU (training the policy network)
 ```
 cd train/
-sbatch --time=04:00:00 --gpus=1 --ntasks=20 --mem-per-cpu=1024 --wrap="python3 train.py"
+sbatch --time=04:00:00 --gpus=M --ntasks=N --mem-per-cpu=1024 --wrap="python3 train.py"
 ```
